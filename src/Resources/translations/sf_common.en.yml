@@ -1,0 +1,4 @@
+confirm_delete_%name%: 'Are you sure you want to delete %name% ?'
+yes_i_am_sure: 'Yes, i am sure'
+pls_confirm_action: 'Please confirm your action'
+delete: 'delete'

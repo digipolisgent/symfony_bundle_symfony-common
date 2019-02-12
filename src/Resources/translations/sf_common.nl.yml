@@ -1,0 +1,4 @@
+confirm_delete_%name%: 'Weet u zeker dat u %name% wil verwijderen ?'
+yes_i_am_sure: 'Ja, ik ben zeker'
+pls_confirm_action: 'Graag uw actie confirmeren'
+delete: 'verwijderen'

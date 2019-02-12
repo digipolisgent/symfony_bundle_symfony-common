@@ -1,0 +1,29 @@
+{% trans_default_domain 'sf_common' %}
+<a class="btn {{ class }}" data-toggle="modal" href="#delete-modal{{ randomid }}">
+    {% if icon %}
+        <i class="fa fa-{{ icon }}"></i>
+    {% endif %}
+    {{ label }}
+</a>
+
+<div class="modal fade" id="delete-modal{{ randomid }}">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">{{ 'pls_confirm_action'|trans }}</h4>
+            </div>
+            <div class="modal-body">
+                {% trans with {'%name%' : '<strong>' ~ entity ~ '</strong>'} %}
+                    confirm_delete_%name%
+                {% endtrans %}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <a href="{{ uri }}" class="btn btn-danger btn-flat">
+                    {{ 'yes_i_am_sure'|trans }}
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

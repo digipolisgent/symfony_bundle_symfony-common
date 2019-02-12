@@ -1,0 +1,19 @@
+{
+    "name": "digipolisgent/symfony-common",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "DigipolisGent\\SymfonyCommon\\": "src/"
+        }
+    },
+    "autoload-dev": {},
+    "prefer-stable": true,
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.5.9",
+        "digipolisgent/datatables-bundle": "^1.0",
+        "digipolisgent/doctrine-extra": "^1.0",
+        "digipolisgent/admin-lte-bundle": "^1.0"
+    },
+    "require-dev": {}
+}

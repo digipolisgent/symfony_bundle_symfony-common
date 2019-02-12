@@ -1,0 +1,36 @@
+services:
+    sf_common.helper.password_updater:
+        class: DigipolisGent\SymfonyCommon\Helper\PasswordUpdater
+        arguments:
+            - '@security.encoder_factory'
+
+    sf_common.entity_listener.user:
+        class: DigipolisGent\SymfonyCommon\EventListener\UserEntityListener
+        arguments:
+            - '@sf_common.helper.password_updater'
+        tags:
+            - { name: doctrine.orm.entity_listener }
+
+    sf_common.admin_menu.builder:
+        class: DigipolisGent\SymfonyCommon\Menu\AdminMenuBuilder
+        arguments:
+            - '@event_dispatcher'
+            - '@knp_menu.factory'
+
+    sf_common.admin_menu:
+        class: Knp\Menu\MenuItem
+        factory: [ "@sf_common.admin_menu.builder", createSidebarMenu ]
+        tags:
+            - { name: knp_menu.menu, alias: admin_menu }
+
+    sf_common.widget.admin_menu:
+        class: DigipolisGent\SymfonyCommon\Widget\AdminMenuWidget
+        arguments:
+            - '@knp_menu.helper'
+        tags:
+            - { name: admin_lte.widget, priority: 10 }
+
+    sf_common.twig.extension.delete:
+        class: DigipolisGent\SymfonyCommon\Twig\DeleteExtension
+        tags:
+            - { name: twig.extension }
